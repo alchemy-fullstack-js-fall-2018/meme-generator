@@ -6,9 +6,6 @@ Meme Generator using Webpack and React
 Structure your project and build system using `webpack` and `package.json` and associated dependencies. 
 Follow the in-class example closely to ensure that you have all elements of the (development) build system in place. Remember all your Config files, ignore files, etc. etc.
 
-* For this lab, create (hand type) your webpack.config.js **from scratch**, check at each step that it is working and
-leaving a **commit history** as each part is added. This is worth 40% of the lab!
-
 ## Features
 
 Create a WYSIWYG editor that allows user to create a meme image with text.
@@ -42,8 +39,7 @@ For this assignment:
   
 ## Rubric
   
-* Bespoke webpack config with commit history **4pts**
 * Functionality works for the end user **2pts**
-* Idomatic React/JSX/JavaScript **2pts**
-* Clean and consistent code - using destructuring and other techniques to reduce duplication and redundancy **2pts**
+* Idomatic React/JSX/JavaScript **4pts**
+* Clean and consistent code - using destructuring and other techniques to reduce duplication and redundancy **4pts**
 
