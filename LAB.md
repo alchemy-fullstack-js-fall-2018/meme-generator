@@ -29,11 +29,9 @@ For this assignment:
 * You start with a single `App` component
 * Your state will live in the `App` component. Initialize state in constructor: `state = {};`
 * Use functional components to break the work of the `App` component into smaller pieces
-* Write JSX in the `render` method of the `App` component and in the body of the functional components
+* Write JSX in the `render` method of the `App` component
     * Use `const { key1, key2 } = this.state` to access state values
-    * Use `function MyControls({ prop1, prop2 }) {` to access passed prop values.
     * Remember that methods that handle events will need to be defined using class property syntax in `App`
-    * Event listeners passed to functional components should have prop name like `onEvent`
     * Call `this.setState({ prop: newValue })` to update the state in App
 * Use destructuring and other advanced javascript techniques to keep the code clean and easier to read.
   
