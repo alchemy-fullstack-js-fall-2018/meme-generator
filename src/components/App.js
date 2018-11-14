@@ -1,0 +1,58 @@
+import React, { Component, Fragment } from 'react';
+// import PropTypes from 'prop-types';
+import fileSaver from 'file-saver';
+import styles from './App.css';
+
+export default class App extends Component {
+    state = {
+      topText: '',
+      bottomText: '',
+      imageSrc: '',
+      img: ''
+    };
+
+    onInputChange = ({ target }) => {
+      this.setState({ [target.name]: target.value, img: '' });
+    };
+
+    onImageUpload = ({ target }) => {
+      this.setState({ imageSrc: window.URL.createObjectURL(target.files[0]) });
+    };
+
+    textAndImage = (event) => {
+      event.preventDefault();
+      domToImage.toPng(document.getElementById('meme'))
+        .then(img => {
+          this.setState({ img });
+        });
+    };
+
+    saveImage = () => {
+      fileSaver.saveAs(this.state.img);
+    };
+
+
+    render() {
+      const { topText, bottomText, imageSrc } = this.state;
+      return (
+        <Fragment>
+          <form onSubmit={this.textAndImage}>
+            <input name="imageFromFile" type="file" accept=".jpg, .png, .svg, .gif" onChange={this.onImageUpload}/>
+            <input name="imageSrc" type="text" value={imageSrc} onChange={this.onInputChange}/>
+            <input name="topText" placeholder="top text goes here" value={topText} onChange={this.onInputChange}/>
+            <input name="bottomText" placeholder="bottom text goes here" value={bottomText} onChange={this.onInputChange}/>
+            <button onClick={this.saveImage}>Save</button>
+          </form>
+
+          <div className="meme" id="meme">
+            <p className="topText">{topText}</p>
+            <img src={imageSrc}></img>
+            <p className="bottomText">{bottomText}</p>
+          </div>
+
+         
+        </Fragment>
+      );
+    }
+
+}
