@@ -1,0 +1,14 @@
+.image {
+
+  span {
+    white-space: pre;
+    margin: auto;
+    display: inline-block;
+    padding: 1em;
+    font-family: monospace;
+  }
+}
+
+body {
+  background-color: teal;
+}
