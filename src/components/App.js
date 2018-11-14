@@ -69,21 +69,36 @@ export default class App extends Component {
             <Fragment>
                 <h1>Hello Meme Generator</h1>
                 <form onSubmit={this.memeToImage}>
-                    <select name="imgSource" defaultValue={imgSource} onChange={this.onChange}>
-                        {options}
-                    </select>
-                    {input}
-                    <select name="font" defaultValue={font} onChange={this.onChange}>
-                        {fontOptions}
-                    </select>
-                    <select name="topColor" defaultValue={topColor} onChange={this.onChange}>
-                        {topColorOptions}
-                    </select>
-                    {topTextInput}
-                    <select name="bottomColor" defaultValue={bottomColor} onChange={this.onChange}>
-                        {bottomColorOptions}
-                    </select>
-                    {bottomTextInput}
+                    
+                    <label> Image Source:<br/>
+                        <select name="imgSource" defaultValue={imgSource} onChange={this.onChange}>
+                            {options}
+                        </select>
+                    </label><br/>
+                    <label> Image:<br/>
+                        {input}
+                    </label><br/>
+                    <label>Meme Font:<br/>
+                        <select name="font" defaultValue={font} onChange={this.onChange}>
+                            {fontOptions}
+                        </select><br/>
+                    </label>
+                    <label>Text Color 2:<br/>
+                        <select name="topColor" defaultValue={topColor} onChange={this.onChange}>
+                            {topColorOptions}
+                        </select><br/>
+                    </label>
+                    <label>Top of Image Text:<br/>
+                        {topTextInput}
+                    </label><br/>
+                    <label>Text Color 2:<br/>
+                        <select name="bottomColor" defaultValue={bottomColor} onChange={this.onChange}>
+                            {bottomColorOptions}
+                        </select><br/>
+                    </label>
+                    <label>Bottom of Image Text:<br/>
+                        {bottomTextInput}
+                    </label><br/>
                     <button>Create Image</button>
                 </form>
                 <div className={styles.card} id="meme">                    {img && <img src={img}/>}
