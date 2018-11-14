@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
 
 import domToImage from 'dom-to-image';
 import fileSaver from 'file-saver';
@@ -40,7 +39,6 @@ export default class App extends Component {
     ]
       .map(font => <option key={font} value={font}>{font}</option>);
 
-
     const textStyle = (direction) => {
 
       return {
@@ -54,8 +52,6 @@ export default class App extends Component {
       };
 
     };
-
-
 
     return (
       <Fragment>
