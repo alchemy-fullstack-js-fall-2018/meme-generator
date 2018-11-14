@@ -4,23 +4,28 @@
   margin: 2em;
 }
 
-.image {
+
+
+.meme {
   position: relative;
   button {
     display: block;
   }
 }
 
-#meme-pic {
+#memePic {
   position: absolute;
 }
 
+.text {
+  color: white;
+}
 .top {
   position: absolute;
   top: 2em;
 }
 
-#meme-bottom {
+.bottom {
   position: absolute;
   bottom: 2em;
 }

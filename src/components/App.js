@@ -54,9 +54,11 @@ export default class App extends Component {
 
 
         <div className={styles.meme} id="meme">
-          <img src={imgSrc} id="meme-pic"/>
-          <span id="meme-top" className="top">{topText}</span>
-          <span id="meme-bottom" className="bottom">{bottomText}</span>
+          <img src={imgSrc} id="memePic" className={styles.image}/>
+          <div className={styles.text}>
+            <span id="memeTop" className={styles.top}>{topText}</span>
+            <span id="memeBottom" className={styles.bottom}>{bottomText}</span>
+          </div>
         </div>
 
       </Fragment>
