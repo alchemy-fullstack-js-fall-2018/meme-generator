@@ -19,24 +19,27 @@ export default class App extends Component {
 
   onChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
-  }
+  };
 
   saveMeme = (event) => {
-
     event.preventDefault();
     domToImage.toPng(document.getElementById('meme'))
       .then(meme => fileSaver.saveAs(meme));
-
-  }
+  };
 
   render() {
 
     const { img, headerText, footerText } = this.state;
 
-
     return (
       <Fragment>
         <form onSubmit={this.saveMeme}>
+          <label htmlFor="img">Top text</label>
+          <input
+            name="img"
+            value={img}
+            onChange={this.onChange}
+          ></input>
           <label htmlFor="headerText">Top text</label>
           <input
             name="headerText"
