@@ -63,53 +63,40 @@ export default class App extends Component {
           <div className={styles.memeForm}>
             <label htmlFor="img">Image</label>
             <input
-              name="img"
-              type="text"
-              value={img}
-              onChange={this.onChange}
+              name="img" type="text"
+              value={img} onChange={this.onChange}
             ></input>
 
             <label htmlFor="headerText">Top text</label>
             <input
-              name="headerText"
-              type="text"
-              value={headerText}
-              onChange={this.onChange}
+              name="headerText" type="text"
+              value={headerText} onChange={this.onChange}
             ></input>
 
             <label htmlFor="footerText">Bottom text</label>
             <input
-              name="footerText"
-              type="text"
-              value={footerText}
-              onChange={this.onChange}
+              name="footerText" type="text"
+              value={footerText} onChange={this.onChange}
             ></input>
 
             <label htmlFor="color">Text color</label>
             <input
-              name="color"
-              value={color}
-              type="color"
-              onChange={this.onChange}
+              name="color" type="color"
+              value={color} onChange={this.onChange}
             ></input>
 
             <label htmlFor="font">Font</label>
             <select
-              name="font"
-              defaultValue={font}
+              name="font" defaultValue={font}
               onChange={this.onChange}
-            >
-              {fontOptions}
+            >{fontOptions}
             </select>
 
             <label htmlFor="size">Text size</label>
             <input
-              name="size"
-              value={size}
-              type="number"
-              onChange={this.onChange}
+              name="size" value={size}
+              type="number" onChange={this.onChange}
             ></input>
-
           </div>
 
           <button type="submit">Save meme!</button>
