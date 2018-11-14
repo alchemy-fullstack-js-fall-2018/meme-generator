@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Meme Generator App snapshot 1`] = `
+<div
+  className="generator"
+>
+  <section
+    className="formHolder"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <select
+        defaultValue="/path/image"
+        name="selectedImg"
+        onChange={[Function]}
+      >
+        <option
+          value="/path/image"
+        >
+          drake
+        </option>
+        <option
+          value="/path/image"
+        >
+          austin
+        </option>
+        <option
+          value="/path/image"
+        >
+          leo
+        </option>
+      </select>
+      <input
+        name="topText"
+        onChange={[Function]}
+        placeholder="top text"
+        value=""
+      />
+      <input
+        name="bottomText"
+        onChange={[Function]}
+        placeholder="bottom text"
+        value=""
+      />
+      <button
+        type="submit"
+      >
+        Create Image
+      </button>
+    </form>
+  </section>
+  <section
+    className="meme"
+    id="meme"
+  >
+    <div
+      className="topText"
+    >
+      
+    </div>
+    <img
+      src="/path/image"
+    />
+    <div
+      className="bottomText"
+    >
+      
+    </div>
+  </section>
+  
+  
+</div>
+`;
