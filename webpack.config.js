@@ -14,7 +14,7 @@ module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    port: 7899,
+    port: 7899
   },
   plugins: [
     // add plugins
@@ -70,8 +70,8 @@ module.exports = {
         test: /\.(jpg|png|svg)$/,
         use: {
           loader: 'url-loader',
-          options: { limit: 1000 },
-        },
+          options: { limit: 1000 }
+        }
       }
     ]
   }
