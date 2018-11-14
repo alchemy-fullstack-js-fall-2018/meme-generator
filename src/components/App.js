@@ -45,7 +45,7 @@ export default class App extends Component {
         const bottomColorOptions = ['black', 'white', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'brown', 'grey'].map(bottomColor => {
             return <option key={bottomColor} value={bottomColor}>{bottomColor}</option>;
         });
-        const fontOptions = ['Arial', 'Times New Roman', 'Garamond', 'Comic Sans'].map(font => {
+        const fontOptions = ['Arial', 'Times New Roman', 'Garamond', 'Helvetica'].map(font => {
             return <option key={font} value={font}>{font}</option>;
         });
         let input = <input type="text" name="img" value={img} onChange={this.onChange}/>;
@@ -54,6 +54,16 @@ export default class App extends Component {
         }
         let topTextInput = <input type="text" name="topText" value={topText} onChange={this.onChange}/>;
         let bottomTextInput = <input type="text" name="bottomText" value={bottomText} onChange={this.onChange}/>;
+
+        let topStyles = {
+            color: topColor,
+            fontFamily: font
+        };
+
+        let bottomStyles = {
+            color: bottomColor,
+            fontFamily: font
+        };
 
         return (
             <Fragment>
@@ -76,9 +86,9 @@ export default class App extends Component {
                     {bottomTextInput}
                     <button>Create Image</button>
                 </form>
-                <div className={styles.card} style={ { fontFamily: font } } id="meme">                    {img && <img src={img}/>}
-                    <p className={styles.topText} style={ { color: topColor } }>{topText}</p>
-                    <p className={styles.bottomText} style={{ color: bottomColor }}>{bottomText}</p>
+                <div className={styles.card} id="meme">                    {img && <img src={img}/>}
+                    <p className={styles.topText} style={topStyles}>{topText}</p>
+                    <p className={styles.bottomText} style={bottomStyles}>{bottomText}</p>
                 </div>
                 <button onClick={this.saveImage}>Save Image</button>
             </Fragment>
