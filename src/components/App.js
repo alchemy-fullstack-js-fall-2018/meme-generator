@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import Styles from './App.css';
 
 export default class App extends Component {
   state = {
@@ -10,6 +11,9 @@ export default class App extends Component {
   onInputChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
   };
+  onImageUpload = ({ target }) => {
+    this.setState({ imageSrc: window.URL.createObjectURL(target.files[0]) });
+  };
 
 
   render() {
@@ -17,6 +21,7 @@ export default class App extends Component {
     
     return (
       <Fragment>
+        <input name="image" type="file" accept="image/*" onChange={this.onImageUpload} />
         <input name="imageSrc" value={imageSrc} onChange={this.onInputChange} />
         <input name="topText" value={ topText } onChange={this.onInputChange}/>
         <input name="bottomText" value={ bottomText } onChange={this.onInputChange} />
