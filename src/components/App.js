@@ -10,14 +10,13 @@ export default class App extends Component {
     font: '',
     textColor: '',
     url: '',
+    upload: '',
     img: './src/assets/sPonGeBOb.jpg'
   };
 
   onChange = ({ target }) => {
-    this.setState({ [target.name]: target.value, img: ''}, () => {
-
-    })
-  }
+    this.setState({ [target.name]: target.value})
+  };
 
   memeToImage = (event) => {
     event.preventDefault();
@@ -32,28 +31,31 @@ export default class App extends Component {
   };
 
   render() {
-    const { topText, bottomText, font, textColor, img } = this.state;
+    const { topText, bottomText, font, textColor, img, url, upload } = this.state;
 
     return (
       <Fragment>
-        <h1>check ya boy out making a react app yeeeeeeeeeeeeah</h1>
+        <h1>memes? where we're going, we're gonna need memes</h1>
 
         <form className={styles.form}>
-          <label for="url">Enter an image URL:</label>
-          <input name="url" id="url" placeholder="http://example.com"></input>
+          <label htmlFor="url">Enter an image URL:</label>
+          <input name="url" id="url" placeholder="http://example.com" onChange={this.onChange} value={url}></input>
 
-          <label for="upload">Upload your own image:</label>
-          <input type="file" id="upload" name="upload" accept=".jpg,.gif,.png,.svg"></input>
+          <label htmlFor="upload">Upload your own image:</label>
+          <input type="file" id="upload" name="upload" accept=".jpg,.gif,.png,.svg" onChange={this.onChange} value={upload}></input>
 
-          <label for="topText">Top Text:</label>
-          <input name="topText" id="topText" placeholder="this is your top text"></input>
+          <label htmlFor="topText">Top Text:</label>
+          <input name="topText" id="topText" placeholder="this is your top text" onChange={this.onChange} value={topText}></input>
 
-          <label for="bottomText">Bottom Text:</label>
-          <input name="bottomText" placeholder="this is your bottom text"></input>
+          <label htmlFor="bottomText">Bottom Text:</label>
+          <input name="bottomText" placeholder="this is your bottom text" onChange={this.onChange} value={bottomText}></input>
         </form>
+
         <div className={styles.image}>
           <span id="image">
             {img && <img src={img} />}
+            {topText}
+            {bottomText}
             {img && <button onClick={this.saveImage}>Save your meme!</button>}
           </span>
         </div>
