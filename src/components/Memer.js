@@ -14,8 +14,8 @@ export default class App extends Component {
     img: 'https://i.imgur.com/cfkKYcR.png',
     headerText: 'Wrote a meme maker',
     footerText: 'nobody used it',
-    font: 'montserrat',
-    color: 'purple',
+    font: 'Papyrus',
+    color: 'green',
     size: '46'
   };
 
@@ -60,50 +60,60 @@ export default class App extends Component {
     return (
       <Fragment>
         <form onSubmit={this.saveMeme}>
-          <label htmlFor="img">Top text</label>
-          <input
-            name="img"
-            value={img}
-            onChange={this.onChange}
-          ></input>
-          <label htmlFor="headerText">Top text</label>
-          <input
-            name="headerText"
-            value={headerText}
-            onChange={this.onChange}
-          ></input>
-          <label htmlFor="footerText">Bottom text</label>
-          <input
-            name="footerText"
-            value={footerText}
-            onChange={this.onChange}
-          ></input>
-          <label htmlFor="color">Text color</label>
-          <input
-            name="color"
-            value={color}
-            type="color"
-            onChange={this.onChange}
-          ></input>
+          <div className={styles.memeForm}>
+            <label htmlFor="img">Image</label>
+            <input
+              name="img"
+              type="text"
+              value={img}
+              onChange={this.onChange}
+            ></input>
 
-          <label htmlFor="font">Font</label>
+            <label htmlFor="headerText">Top text</label>
+            <input
+              name="headerText"
+              type="text"
+              value={headerText}
+              onChange={this.onChange}
+            ></input>
 
-          <select
-            name="font"
-            defaultValue={font}
-            onChange={this.onChange}
-          >
-            {fontOptions}
-          </select>
+            <label htmlFor="footerText">Bottom text</label>
+            <input
+              name="footerText"
+              type="text"
+              value={footerText}
+              onChange={this.onChange}
+            ></input>
 
-          <label htmlFor="size">Text size</label>
-          <input
-            name="size"
-            value={size}
-            type="number"
-            onChange={this.onChange}
-          ></input>
+            <label htmlFor="color">Text color</label>
+            <input
+              name="color"
+              value={color}
+              type="color"
+              onChange={this.onChange}
+            ></input>
+
+            <label htmlFor="font">Font</label>
+            <select
+              name="font"
+              defaultValue={font}
+              onChange={this.onChange}
+            >
+              {fontOptions}
+            </select>
+
+            <label htmlFor="size">Text size</label>
+            <input
+              name="size"
+              value={size}
+              type="number"
+              onChange={this.onChange}
+            ></input>
+
+          </div>
+
           <button type="submit">Save meme!</button>
+
         </form>
         <div id="meme" className={styles.meme}>
           <img className={styles.memeImage} src={img} />

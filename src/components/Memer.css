@@ -7,19 +7,29 @@
 /* font-family: 'Montserrat', sans-serif; */
 /* font-family: 'Paprika', cursive; */
 
-@import url('/src/assets/papyrus.ttf');
-
-@font-face {
-  font-family: 'Papyrus';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Papyrus'), url(/src/assets/papyrus.ttf) format('truetype');
-
-}
-
 .memeForm {
-  display: block;
+  display: grid;
+  grid-template-columns: 300px 300px;
+  margin: 0px 15%;
 }
+.memeForm label {
+  justify-self: end;
+  margin: 5px;
+}
+
+.memeForm input {
+  justify-self: start;
+  margin: 5px;
+}
+.memeForm input[type=text] {
+  width: 100%;
+}
+
+.memeForm select {
+  justify-self: start;
+  margin: 5px;
+}
+
 
 .meme {
   position: relative;
@@ -48,22 +58,21 @@
   height: 100%;
 }
 
-.top {
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
+
+
+
+/* font stuff below... */
+
+@import url('/src/assets/papyrus.ttf');
+
+@font-face {
+  font-family: 'Papyrus';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Papyrus'), url(/src/assets/papyrus.ttf) format('truetype');
+
 }
-
-.bottom {
-    position: absolute;
-    bottom: 8px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-
-
 
 /* latin */
 @font-face {
