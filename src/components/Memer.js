@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import domToImage from 'dom-to-image';
 import fileSaver from 'file-saver';
 
+
 import styles from './Memer.css';
 
 export default class App extends Component {
@@ -13,8 +14,8 @@ export default class App extends Component {
     img: 'https://i.imgur.com/cfkKYcR.png',
     headerText: 'Wrote a meme maker',
     footerText: 'nobody used it',
-    font: '',
-    color: ''
+    font: 'montserrat',
+    color: 'purple'
   };
 
   onChange = ({ target }) => {
@@ -29,7 +30,29 @@ export default class App extends Component {
 
   render() {
 
-    const { img, headerText, footerText } = this.state;
+    const { img, headerText, footerText, font, color } = this.state;
+
+    const fontOptions = [
+      'Roboto', 'Allerta Stencil', 'Archivo',
+      'Open Sans', 'Mongserrat', 'Paprika'
+    ]
+      .map(font => <option key={font} value={font}>{font}</option>);
+
+
+    const textStyle = (direction) => {
+
+      return {
+        position: 'absolute',
+        [direction]: '8px',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        color: color,
+        fontFamily: font
+      };
+
+    };
+
+
 
     return (
       <Fragment>
@@ -52,13 +75,20 @@ export default class App extends Component {
             value={footerText}
             onChange={this.onChange}
           ></input>
+          <select
+            name="font"
+            defaultValue={font}
+            onChange={this.onChange}
+          >
+            {fontOptions}
+          </select>
           <button type="submit">Save meme!</button>
         </form>
         <div id="meme" className={styles.meme}>
           <img className={styles.memeImage} src={img} />
           <div className={styles.memeText}>
-            <p className={styles.top}>{headerText}</p>
-            <p className={styles.bottom}>{footerText}</p>
+            <p style={textStyle('top')}>{headerText}</p>
+            <p  style={textStyle('bottom')}>{footerText}</p>
           </div>
         </div>
       </Fragment>
