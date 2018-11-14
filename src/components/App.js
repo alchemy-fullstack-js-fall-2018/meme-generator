@@ -9,8 +9,8 @@ export default class App extends Component {
     bottomText: '',
     font: '',
     textColor: '',
-    url: '',
-    img: './src/assets/sPonGeBOb.jpg'
+    imgSrc: '',
+    img: ''
   };
 
   onChange = ({ target }) => {
@@ -18,31 +18,27 @@ export default class App extends Component {
   };
 
   onFileUpload = ({ target }) => {
-    this.setState({ url: window.URL.createObjectURL(target.files[0])})
+    this.setState({ imgSrc: window.URL.createObjectURL(target.files[0])})
   }
 
   memeToImage = (event) => {
     event.preventDefault();
     domToImage.toPng(document.getElementById('image'))
-      .then(img => {
-        this.setState({ img });
+      .then(file => {
+        fileSaver.saveAs(file);
       });
   };
 
-  saveImage = () => {
-    fileSaver.saveAs(this.state.url);
-  };
-
   render() {
-    const { topText, bottomText, font, textColor, img, url } = this.state;
+    const { topText, bottomText, font, textColor, imgSrc, img } = this.state;
 
     return (
       <Fragment>
         <h1>memes? where we're going, we're gonna need memes</h1>
 
-        <form className={styles.form}>
+        <form onSubmit={this.memeToImage} className={styles.form}>
           <label htmlFor="url">Enter an image URL:</label>
-          <input type="url" name="url" id="url" placeholder="http://example.com" onChange={this.onChange} value={url}/>
+          <input type="url" name="imgSrc" id="url" placeholder="http://example.com" onChange={this.onChange}/>
 
           <label htmlFor="upload">Upload your own image:</label>
           <input type="file" id="upload" name="upload" accept=".jpg,.gif,.png,.svg" onChange={this.onFileUpload}/>
@@ -52,13 +48,15 @@ export default class App extends Component {
 
           <label htmlFor="bottomText">Bottom Text:</label>
           <input name="bottomText" placeholder="this is your bottom text" onChange={this.onChange} value={bottomText}/>
+
+          <button type="submit">Save that sweet meme</button>
         </form>
 
-        <div className={styles.image} id="image">
-          <img src={url} id="meme-pic"/>
+
+        <div className={styles.meme} id="meme">
+          <img src={imgSrc} id="meme-pic"/>
           <span id="meme-top" className="top">{topText}</span>
           <span id="meme-bottom" className="bottom">{bottomText}</span>
-          {img && <button onClick={this.saveImage}>Save your meme!</button>}
         </div>
 
       </Fragment>
