@@ -14,7 +14,7 @@ module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    port: 7899,
+    port: 7811,
   },
   plugins: [
     // add plugins
