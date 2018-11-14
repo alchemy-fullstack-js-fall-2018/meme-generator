@@ -6,7 +6,9 @@ import styles from './App.css';
 export default class App extends Component{
 
   state = {
-    url: ''
+    header: 'Meme',
+    footer: 'Me!',
+    url: 'https://i.ytimg.com/vi/SB-qEYVdvXA/hqdefault.jpg'
   };
 
 
@@ -25,27 +27,40 @@ export default class App extends Component{
 
   render() {
 
-    const { url } = this.state;
+    const { header, footer, url } = this.state;
 
     return (
       <Fragment>
         <h1>Who is ready to Meme?</h1>
-        {/* <form onSubmit={this.displayImage}> */}
         <form>
           <div id="urlUploader">
             <label htmlFor="url">Upload image via URL here</label>
             <input name="url" id="url" type="url" value={url} onChange={this.onChange}/>
+
+            <label htmlFor="header">Header:</label>
+            <input name="header" id="header" type="header" value={header} onChange={this.onChange}/>
+
+            <label htmlFor="footer">Footer:</label>
+            <input name="footer" id="footer" type="footer" value={footer} onChange={this.onChange}/>
             <button type="submit">Submit</button>
           </div>
-          {/* <h4>or</h4>
-          <div id="fileUploader">
-          <label htmlFor="file">Upload image from you computer</label>
-          <input name="file" id="file" type="file"/>
-        </div> */}
-        </form>
 
-        <img src={url} alt="meme image"/>
+        </form>
+        <div className={styles.meme} id="meme">
+          <img className={styles.image} src={url} alt="meme image"/>
+          <div className={styles.memeText}>
+            <span className={styles.header} id={header}>{header}</span>
+            <span className={styles.footer} id={footer}>{footer}</span>
+          </div>
+        </div>
       </Fragment>
     );
   }
 }
+
+
+       {/* <h4>or</h4>
+          <div id="fileUploader">
+          <label htmlFor="file">Upload image from you computer</label>
+          <input name="file" id="file" type="file"/>
+        </div> */}
