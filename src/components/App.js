@@ -9,9 +9,9 @@ export default class App extends Component {
   }
 
   state = {
-    header: 'Meme',
-    footer: 'Me!',
-    color: 'yellow',
+    header: '',
+    footer: '',
+    color: 'white',
     fontFamily: 'helvetica',
     source:
       'http://static.origos.hu/s/img/i/1801/20180108doge-dogecoin-kriptovaluta.jpg',
@@ -45,7 +45,6 @@ export default class App extends Component {
   render() {
 
     const { header, footer, color, fontFamily, source } = this.state;
-    console.log(fontFamily);
     const colorOptions = ['Yellow', 'Red', 'White', 'Black'].map(color => {
       return <option key={color} value={color}>{color}</option>;
     });
