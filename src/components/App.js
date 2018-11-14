@@ -4,7 +4,7 @@ import image2 from '../assets/image2.jpg';
 import image3 from '../assets/image3.jpg';
 import styles from './App.css';
 import domToImage from 'dom-to-image';
-// import fileSaver from 'file-saver';
+import fileSaver from 'file-saver';
 
 const imageMap = [
   {
@@ -38,6 +38,10 @@ export default class App extends Component {
     domToImage.toPng(document.getElementById('meme')).then(memeImg => {
       this.setState({ memeImg });
     });
+  };
+
+  saveImage = () => {
+    fileSaver.saveAs(this.state.memeImg);
   };
 
   render() {
@@ -82,6 +86,7 @@ export default class App extends Component {
           <div className={styles.bottomText}>{bottomText}</div>
         </section>
         {memeImg && <img src={memeImg} />}
+        {memeImg && <button onClick={this.saveImage}>Save Image</button>}
       </div>
     );
   }

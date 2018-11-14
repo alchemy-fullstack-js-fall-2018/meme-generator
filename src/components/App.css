@@ -17,12 +17,12 @@
   width: 600px;
   height: 400px;
   .topText {
+    z-index: 3;
+    position: absolute;
     text-align: center;
-    height: 100px;
     width: 600px;
+    top: 10px;
     overflow: hidden;
-    position: relative;
-    top: 100px;
     margin: auto;
     font-size: 2.5em;
     color: white;
@@ -33,8 +33,8 @@
     height: 100px;
     width: 600px;
     overflow: hidden;
-    position: relative;
-    bottom: 100px;
+    position: absolute;
+    bottom: 25px;
     margin: auto;
     font-size: 2.5em;
     color: white;
