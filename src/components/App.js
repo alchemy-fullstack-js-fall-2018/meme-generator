@@ -11,7 +11,7 @@ export default class App extends Component {
     font: 'Standard',
     text: '',
     formatedText: '',
-    img: '',
+    img: 'http://i.imgflip.com/2mk6g6.jpg',
     color: ''
   };
 
@@ -25,64 +25,62 @@ export default class App extends Component {
     });
   };
 
-  textToImage = (event) => {
+  saveMeme = (event) => {
     event.preventDefault();
-    domToImage.toPng(document.getElementById('image'))
-      .then(img => {
-        this.setState({ img });
+    domToImage.toPng(document.getElementById('memeImage'))
+      .then(memeImage => {
+        this.setState({ memeImage });
       });
   };
-
-  // fontToImage = (event) => {
-  //   event.preventDefault();
-  //   domToImage.toPng(document.getElementById('image'))
-  //     .then(img => {
-  //       this.setState({ img });
-  //     });
-  // };
 
   saveImage = () => {
     fileSaver.saveAs(this.state.img);
   };
 
   render() {
-    const { font, text, formatedText, img } = this.state;
-    const options = ['Standard', 'Bell', '3-D', 'Avatar', 'Barbwire'].map(font => {
+    const { font, text, formatedText, img, color  } = this.state;
+    const fontOptions = ['Standard', 'Bell', '3-D', 'Avatar', 'Barbwire'].map(font => {
       return <option key={font} value={font}>{font}</option>;
     });
 
-    // const colorsOptions = ['Blue', 'Red', 'Green', 'Green', 'Magenta'].map(color => {
-    //   return <option key={color} value={color}>{color}</option>;
-    // });
+    const memeTextStyles = () => {
+      return {
+        color: color
+      }
+    }
+
 
     return (
       <Fragment>
-        <form onSubmit={this.textToImage}>
+        <form onSubmit={this.saveMeme}>
+          <div id="images">
+            <label htmlFor="img">Enter image URL or upload image</label>
+            <input type="text" name="img" id="url" placeholder="Enter Image URL" value={img} onChange={this.onChange} />
+          </div>
+
+          <label htmlFor="font">Select Font</label>
           <select name="font" defaultValue={font} onChange={this.onChange}>
-            {options}
+            {fontOptions}
           </select>
 
-          <select name="color" defaultValue={color} onChange={this.onChange}>
-          {colorsOptions}
-          </select>
-
+          <label htmlFor="color">Choose Text Color:</label>
+          <input
+            name="color" type="color" value={color} onChange={this.onChange}>
+          </input>
 
           <input name="text" placeholder="put text here" value={text} onChange={this.onChange} />
-          <button type="submit">Create Image</button>
+          <button type="submit">Save meme</button>
+          </form>
 
-        <div id="images">
-        <label for="url">Enter image URL or upload image</label>
-        <input type="url" name="url" id="url" placeholder="Enter Image URL" value={url} onChange={this.onChange} />
-        </div>
+
         <div className={styles.image}>
-          <span id="image" >
+          <span id="memeImage" >
             {formatedText}
           </span>
         </div>
         {img && <img src={img} />}
         {img && <button onClick={this.saveImage}>Save Image</button>}
 
-        </form>
 
 
 
