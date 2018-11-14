@@ -5,7 +5,8 @@
       "sourceType": "module"
     },
     "globals": {
-      "document": true
+      "document": true,
+      "window": true
     },
     "plugins": [
       "babel",

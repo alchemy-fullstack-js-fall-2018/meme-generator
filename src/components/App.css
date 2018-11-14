@@ -1,4 +1,32 @@
-.memeForm {
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Kumar+One+Outline|Open+Sans|Roboto');
+
+.serif {
+  font-family: Times, , Georgia, serif;
+}
+
+.sans-serif {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.monospace {
+  font-family: Lucida, Courier, monospace;
+}
+
+.cursive {
+  font-family: cursive;
+}
+
+.fantasy {
+  font-family: fantasy;
+}
+.helvetica {
+  font-family: 'Helvetica'
+}
+.open-sans {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.form {
   display: block;
 }
 
@@ -22,20 +50,21 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  font-size: 46px;
+  font-size: 55px;
   font-weight: bold;
+  color: white;
 }
 
 .header {
     position: absolute;
-    top: 8px;
+    top: 30px;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .footer {
     position: absolute;
-    bottom: 8px;
+    bottom: -30px;
     left: 50%;
     transform: translate(-50%, -50%);
 }
