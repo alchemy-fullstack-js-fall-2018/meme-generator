@@ -10,13 +10,16 @@ export default class App extends Component {
     font: '',
     textColor: '',
     url: '',
-    upload: '',
     img: './src/assets/sPonGeBOb.jpg'
   };
 
   onChange = ({ target }) => {
     this.setState({ [target.name]: target.value})
   };
+
+  onFileUpload = ({ target }) => {
+    this.setState({ url: window.URL.createObjectURL(target.files[0])})
+  }
 
   memeToImage = (event) => {
     event.preventDefault();
@@ -27,11 +30,11 @@ export default class App extends Component {
   };
 
   saveImage = () => {
-    fileSaver.saveAs(this.state.img);
+    fileSaver.saveAs(this.state.url);
   };
 
   render() {
-    const { topText, bottomText, font, textColor, img, url, upload } = this.state;
+    const { topText, bottomText, font, textColor, img, url } = this.state;
 
     return (
       <Fragment>
@@ -39,25 +42,23 @@ export default class App extends Component {
 
         <form className={styles.form}>
           <label htmlFor="url">Enter an image URL:</label>
-          <input name="url" id="url" placeholder="http://example.com" onChange={this.onChange} value={url}></input>
+          <input type="url" name="url" id="url" placeholder="http://example.com" onChange={this.onChange} value={url}/>
 
           <label htmlFor="upload">Upload your own image:</label>
-          <input type="file" id="upload" name="upload" accept=".jpg,.gif,.png,.svg" onChange={this.onChange} value={upload}></input>
+          <input type="file" id="upload" name="upload" accept=".jpg,.gif,.png,.svg" onChange={this.onFileUpload}/>
 
           <label htmlFor="topText">Top Text:</label>
-          <input name="topText" id="topText" placeholder="this is your top text" onChange={this.onChange} value={topText}></input>
+          <input name="topText" id="topText" placeholder="this is your top text" onChange={this.onChange} value={topText}/>
 
           <label htmlFor="bottomText">Bottom Text:</label>
-          <input name="bottomText" placeholder="this is your bottom text" onChange={this.onChange} value={bottomText}></input>
+          <input name="bottomText" placeholder="this is your bottom text" onChange={this.onChange} value={bottomText}/>
         </form>
 
-        <div className={styles.image}>
-          <span id="image">
-            {img && <img src={img} />}
-            {topText}
-            {bottomText}
-            {img && <button onClick={this.saveImage}>Save your meme!</button>}
-          </span>
+        <div className={styles.image} id="image">
+          <img src={url} id="meme-pic"/>
+          <span id="meme-top" className="top">{topText}</span>
+          <span id="meme-bottom" className="bottom">{bottomText}</span>
+          {img && <button onClick={this.saveImage}>Save your meme!</button>}
         </div>
 
       </Fragment>

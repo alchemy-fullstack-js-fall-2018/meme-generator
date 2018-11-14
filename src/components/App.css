@@ -3,3 +3,24 @@
   flex-direction: column;
   margin: 2em;
 }
+
+.image {
+  position: relative;
+  button {
+    display: block;
+  }
+}
+
+#meme-pic {
+  position: absolute;
+}
+
+.top {
+  position: absolute;
+  top: 2em;
+}
+
+#meme-bottom {
+  position: absolute;
+  bottom: 2em;
+}
