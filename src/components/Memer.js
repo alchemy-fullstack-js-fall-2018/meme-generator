@@ -1,6 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+import domToImage from 'dom-to-image';
+import fileSaver from 'file-saver';
+
 import styles from './Memer.css';
 
 export default class App extends Component {
@@ -15,8 +18,15 @@ export default class App extends Component {
   };
 
   onChange = ({ target }) => {
-
     this.setState({ [target.name]: target.value });
+  }
+
+  saveMeme = (event) => {
+
+    event.preventDefault();
+    domToImage.toPng(document.getElementById('meme'))
+      .then(meme => fileSaver.saveAs(meme));
+
   }
 
   render() {
@@ -26,7 +36,7 @@ export default class App extends Component {
 
     return (
       <Fragment>
-        <form>
+        <form onSubmit={this.saveMeme}>
           <label htmlFor="headerText">Top text</label>
           <input
             name="headerText"
@@ -39,8 +49,9 @@ export default class App extends Component {
             value={footerText}
             onChange={this.onChange}
           ></input>
+          <button type="submit">Save meme!</button>
         </form>
-        <div className={styles.meme}>
+        <div id="meme" className={styles.meme}>
           <img className={styles.memeImage} src={img} />
           <div className={styles.memeText}>
             <p className={styles.top}>{headerText}</p>
