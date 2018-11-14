@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
 import domToImage from 'dom-to-image';
 import fileSaver from 'file-saver';
 import styles from './App.css';
@@ -26,9 +25,11 @@ export default class App extends Component {
 
   textToImage = (event) => {
     event.preventDefault();
-    domToImage.toPng(document.getElementById('imageContainer'))
+    const imageElement = document.getElementById('imageContainer');
+    domToImage.toPng(imageElement)
       .then(img => {
-        this.setState({ image });
+        debugger;
+        this.setState({ image: img });
       });
   };
 
@@ -90,14 +91,15 @@ render () {
           <label htmlFor="imageUpload"></label>
           <input name="imageUpload" type="file" accept="image/*" onChange={this.onImageUpload} />
           <p>{imageURL}</p>
+          <button type="submit">Create Image</button>
         </fieldset>
       </form>
 
-      <div id="imageContainer" style={imageContainerStyle}>
+      <span id="imageContainer" style={imageContainerStyle}>
         {imageURL && <img src={imageURL} />}
         <div style={headerStyle}>{header}</div>
         <div style={footerStyle}>{footer}</div>
-      </div>
+      </span>
       {image && <img src={image} />}
       {imageURL && <button onClick={this.saveImage}>Save Image</button>}
     </Fragment>
