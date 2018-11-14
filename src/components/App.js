@@ -67,7 +67,7 @@ export default class App extends Component {
 
         return (
             <Fragment>
-                <h1>Hello Meme Generator</h1>
+                <h1>Meme Generator</h1>
                 <form onSubmit={this.memeToImage}>
                     
                     <label> Image Source:<br/>
