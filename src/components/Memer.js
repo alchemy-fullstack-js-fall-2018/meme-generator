@@ -7,28 +7,44 @@ export default class App extends Component {
 
 
   state = {
-    img: 'https://i.imgur.com/rbXZcVH.jpg',
-    headerText: 'top',
-    footerText: 'bottom',
+    img: 'https://i.imgur.com/cfkKYcR.png',
+    headerText: 'Wrote a meme maker',
+    footerText: 'nobody used it',
     font: '',
     color: ''
   };
 
+  onChange = ({ target }) => {
+
+    this.setState({ [target.name]: target.value });
+  }
+
   render() {
+
+    const { img, headerText, footerText } = this.state;
+
 
     return (
       <Fragment>
         <form>
           <label htmlFor="headerText">Top text</label>
-          <input name="headerText"></input>
+          <input
+            name="headerText"
+            value={headerText}
+            onChange={this.onChange}
+          ></input>
           <label htmlFor="footerText">Bottom text</label>
-          <input name="footerText"></input>
+          <input
+            name="footerText"
+            value={footerText}
+            onChange={this.onChange}
+          ></input>
         </form>
         <div className={styles.meme}>
-          <img className={styles.memeImage} src={this.state.img} />
+          <img className={styles.memeImage} src={img} />
           <div className={styles.memeText}>
-            <p className={styles.top}>{this.state.headerText}</p>
-            <p className={styles.bottom}>{this.state.footerText}</p>
+            <p className={styles.top}>{headerText}</p>
+            <p className={styles.bottom}>{footerText}</p>
           </div>
         </div>
       </Fragment>
