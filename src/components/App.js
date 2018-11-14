@@ -3,7 +3,6 @@ import figlet from 'figlet';
 import domToImage from 'dom-to-image';
 import fileSaver from 'file-saver';
 import styles from './App.css';
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 export default class App extends Component {
@@ -37,7 +36,7 @@ export default class App extends Component {
   };
 
   render() {
-    const { font, text, formatedText, img } = this.state;
+    const { font, text, formatedText, img, url } = this.state;
     const options = ['Standard', 'Bell', '3-D', 'Avatar', 'Barbwire'].map(font => {
       return <option key={font} value={font}>{font}</option>;
     });
@@ -50,7 +49,15 @@ export default class App extends Component {
           </select>
           <input name="text" placeholder="put text here" value={text} onChange={this.onChange} />
           <button type="submit">Create Image</button>
+
+        <div id="images">
+        <label for="url">Enter image URL or upload image</label>
+        <input type="url" name="url" id="url" placeholder="Enter Image URL" value={url} onChange={this.onChange} />
+        </div>
         </form>
+
+
+
         <div className={styles.image}>
           <span id="image" >
             {formatedText}
