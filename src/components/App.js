@@ -11,7 +11,7 @@ export default class App extends Component {
   state = {
     header: '',
     footer: '',
-    color: 'white',
+    color: 'Yellow',
     fontFamily: 'helvetica',
     source:
       'http://static.origos.hu/s/img/i/1801/20180108doge-dogecoin-kriptovaluta.jpg',
@@ -57,7 +57,7 @@ export default class App extends Component {
         <h1>Who is ready to Meme?</h1>
 
         <form onSubmit={this.memeToImage}>
-          <div id='uploader'>
+          <div id={styles.uploader}>
             <label htmlFor='source'>Type in the image URL here:</label>
             <input name='source'id='source' type='source' value={source} onChange={this.onChange} />
             <h3>or</h3>
@@ -65,12 +65,13 @@ export default class App extends Component {
             <input name="file" id="file" type="file" onChange={this.uploadFile}/>
           </div>
 
-          <div id='textInput'>
-            <label htmlFor='header'>Header:</label>
-            <input name='header' id='header' type='header' value={header} onChange={this.onChange} />
+          <div id={styles.textInput}>
 
-            <label htmlFor='footer'>Footer:</label>
-            <input name='footer' id='footer' type='footer' value={footer} onChange={this.onChange} />
+            <label htmlFor={styles.header}>Header:</label>
+            <input name='header' id={styles.header} type='header' value={header} onChange={this.onChange} />
+
+            <label htmlFor={styles.footer}>Footer:</label>
+            <input name='footer' id={styles.footer} type='footer' value={footer} onChange={this.onChange} />
 
             <label htmlFor='color'>Text Color</label>
             <select name='color' id='color' defaultValue={color} onChange={this.onChange}>
@@ -81,9 +82,9 @@ export default class App extends Component {
             <select id="font" name="fontFamily" defaultValue={fontFamily} onChange={this.onChange}>
               {fontOptions}
             </select>
+            <button type="submit">Save Meme</button>
           </div>
 
-          <button type="submit">Save Meme</button>
         </form>
 
         <div className={styles.meme} id='meme'>

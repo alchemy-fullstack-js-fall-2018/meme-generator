@@ -1,4 +1,30 @@
+#uploader {
+  margin: 25px;
+  width:
+}
 
+#textInput {
+  display: flex;
+  flex-direction: column;
+  margin: 25px;
+  width: 50%;
+
+  #header {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  #footer {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  button {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    height: 5vh;
+  }
+}
 
 .meme {
   position: relative;
