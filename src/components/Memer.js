@@ -15,7 +15,8 @@ export default class App extends Component {
     headerText: 'Wrote a meme maker',
     footerText: 'nobody used it',
     font: 'montserrat',
-    color: 'purple'
+    color: 'purple',
+    size: '46'
   };
 
   onChange = ({ target }) => {
@@ -30,11 +31,12 @@ export default class App extends Component {
 
   render() {
 
-    const { img, headerText, footerText, font, color } = this.state;
+    const { img, headerText, footerText, font, color, size } = this.state;
 
     const fontOptions = [
       'Roboto', 'Allerta Stencil', 'Archivo',
-      'Open Sans', 'Mongserrat', 'Paprika'
+      'Open Sans', 'Mongserrat', 'Paprika',
+      'Comic Sans MS', 'Papyrus'
     ]
       .map(font => <option key={font} value={font}>{font}</option>);
 
@@ -47,7 +49,8 @@ export default class App extends Component {
         left: '50%',
         transform: 'translate(-50%, -50%)',
         color: color,
-        fontFamily: font
+        fontFamily: font,
+        fontSize: `${size}px`
       };
 
     };
@@ -82,6 +85,9 @@ export default class App extends Component {
             type="color"
             onChange={this.onChange}
           ></input>
+
+          <label htmlFor="font">Font</label>
+
           <select
             name="font"
             defaultValue={font}
@@ -89,6 +95,14 @@ export default class App extends Component {
           >
             {fontOptions}
           </select>
+
+          <label htmlFor="size">Text size</label>
+          <input
+            name="size"
+            value={size}
+            type="number"
+            onChange={this.onChange}
+          ></input>
           <button type="submit">Save meme!</button>
         </form>
         <div id="meme" className={styles.meme}>
