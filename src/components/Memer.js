@@ -75,6 +75,13 @@ export default class App extends Component {
             value={footerText}
             onChange={this.onChange}
           ></input>
+          <label htmlFor="color">Text color</label>
+          <input
+            name="color"
+            value={color}
+            type="color"
+            onChange={this.onChange}
+          ></input>
           <select
             name="font"
             defaultValue={font}
