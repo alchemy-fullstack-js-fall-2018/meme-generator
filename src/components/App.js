@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import domToImage from 'dom-to-image';
-
 import fileSaver from 'file-saver';
 import styles from './App.css';
 
@@ -12,8 +11,8 @@ export default class App extends Component {
   state = {
     header: 'Meme',
     footer: 'Me!',
-    color: { color: 'Yellow' },
-    font: 'Standard',
+    color: 'yellow',
+    fontFamily: 'helvetica',
     source:
       'http://static.origos.hu/s/img/i/1801/20180108doge-dogecoin-kriptovaluta.jpg',
     sourceType: 'url',
@@ -22,6 +21,10 @@ export default class App extends Component {
 
   onChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
+  };
+
+  changeStyles = ({ target }) => {
+    this.setState({ [target.name]: { [target.name]: target.value } });
   };
 
 
@@ -41,11 +44,12 @@ export default class App extends Component {
 
   render() {
 
-    const { header, footer, color, font, source } = this.state;
+    const { header, footer, color, fontFamily, source } = this.state;
+    console.log(fontFamily);
     const colorOptions = ['Yellow', 'Red', 'White', 'Black'].map(color => {
       return <option key={color} value={color}>{color}</option>;
     });
-    const fontOptions = ['Standard', 'Banner', 'Alligator2', 'Alpha'].map(font => {
+    const fontOptions = ['helvetica', 'courier', 'arial'].map(font => {
       return <option key={font} value={font}>{font}</option>;
     });
 
@@ -75,7 +79,7 @@ export default class App extends Component {
             </select>
 
             <label htmlFor='font'>Text Font</label>
-            <select name="font" defaultValue={font} onChange={this.onChange}>
+            <select id="font" name="fontFamily" defaultValue={fontFamily} onChange={this.onChange}>
               {fontOptions}
             </select>
           </div>
@@ -86,10 +90,10 @@ export default class App extends Component {
         <div className={styles.meme} id='meme'>
           <img className={styles.image} id="image" src={source} alt='meme image' />
           <div className={styles.memeText}>
-            <span className={styles.header} id={header}>
+            <span className={styles.header} id={header} style={{ color, fontFamily }}>
               {header}
             </span>
-            <span className={styles.footer} id={footer}>
+            <span className={styles.footer} id={footer} style={{ color, fontFamily }}>
               {footer}
             </span>
           </div>
