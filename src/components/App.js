@@ -23,9 +23,11 @@ const imageMap = [
 
 export default class App extends Component {
   state = {
+    color: 'white',
+    font: 'helvetica',
     topText: '',
     bottomText: '',
-    selectedImg: image1,
+    selectedImg: '',
     memeImg: ''
   };
 
@@ -45,7 +47,16 @@ export default class App extends Component {
   };
 
   render() {
-    const { topText, bottomText, selectedImg, memeImg } = this.state;
+
+    const {
+      color,
+      font,
+      topText,
+      bottomText,
+      selectedImg,
+      memeImg,
+    } = this.state;
+
     const options = imageMap.map(img => {
       return (
         <option key={img.title} value={img.src}>
@@ -54,10 +65,24 @@ export default class App extends Component {
       );
     });
 
+    const fontOptions = ['courrier', 'helvetica', 'arial'].map(font => (
+      <option key={font} value={font}>
+        {font}
+      </option>
+    ));
+
+    const fontToStyle = {
+      fontFamily: font,
+      color: color
+    };
+
     return (
       <div className={styles.generator}>
+        <h1>React Meme Generator</h1>
+
         <section className={styles.formHolder}>
           <form onSubmit={this.memeToImage}>
+            <label name="selectedImg">Choose an image:</label>
             <select
               name="selectedImg"
               defaultValue={selectedImg}
@@ -65,6 +90,16 @@ export default class App extends Component {
             >
               {options}
             </select>
+            <select name="font" defaultValue={font} onChange={this.onChange}>
+              {fontOptions}
+            </select>
+            <label name="color">Choose a color:</label>
+            <input
+              name="color"
+              type="color"
+              value={color}
+              onChange={this.onChange}
+            />
             <input
               name="topText"
               value={topText}
@@ -77,14 +112,20 @@ export default class App extends Component {
               placeholder="bottom text"
               onChange={this.onChange}
             />
-            <button type="submit">Create Image</button>
+            <button type="submit">Create Meme</button>
           </form>
         </section>
+
         <section id="meme" className={styles.meme}>
-          <div className={styles.topText}>{topText}</div>
+          <div className={styles.topText}>
+            <p style={fontToStyle}>{topText}</p>
+          </div>
           <img src={selectedImg} />
-          <div className={styles.bottomText}>{bottomText}</div>
+          <div className={styles.bottomText}>
+            <p style={fontToStyle}>{bottomText}</p>
+          </div>
         </section>
+
         {memeImg && <img src={memeImg} />}
         {memeImg && <button onClick={this.saveImage}>Save Image</button>}
       </div>

@@ -4,14 +4,22 @@ exports[`Meme Generator App snapshot 1`] = `
 <div
   className="generator"
 >
+  <h1>
+    React Meme Generator
+  </h1>
   <section
     className="formHolder"
   >
     <form
       onSubmit={[Function]}
     >
+      <label
+        name="selectedImg"
+      >
+        Choose an image:
+      </label>
       <select
-        defaultValue="/path/image"
+        defaultValue=""
         name="selectedImg"
         onChange={[Function]}
       >
@@ -31,6 +39,38 @@ exports[`Meme Generator App snapshot 1`] = `
           leo
         </option>
       </select>
+      <select
+        defaultValue="helvetica"
+        name="font"
+        onChange={[Function]}
+      >
+        <option
+          value="courrier"
+        >
+          courrier
+        </option>
+        <option
+          value="helvetica"
+        >
+          helvetica
+        </option>
+        <option
+          value="arial"
+        >
+          arial
+        </option>
+      </select>
+      <label
+        name="color"
+      >
+        Choose a color:
+      </label>
+      <input
+        name="color"
+        onChange={[Function]}
+        type="color"
+        value="white"
+      />
       <input
         name="topText"
         onChange={[Function]}
@@ -46,7 +86,7 @@ exports[`Meme Generator App snapshot 1`] = `
       <button
         type="submit"
       >
-        Create Image
+        Create Meme
       </button>
     </form>
   </section>
@@ -57,15 +97,33 @@ exports[`Meme Generator App snapshot 1`] = `
     <div
       className="topText"
     >
-      
+      <p
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "helvetica",
+          }
+        }
+      >
+        
+      </p>
     </div>
     <img
-      src="/path/image"
+      src=""
     />
     <div
       className="bottomText"
     >
-      
+      <p
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "helvetica",
+          }
+        }
+      >
+        
+      </p>
     </div>
   </section>
   
