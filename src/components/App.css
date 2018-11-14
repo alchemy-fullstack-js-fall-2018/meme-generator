@@ -4,10 +4,10 @@
   margin: 2em;
 }
 
-
-
 .meme {
   position: relative;
+  display: flex;
+  justify-content: center;
   button {
     display: block;
   }
@@ -18,14 +18,18 @@
 }
 
 .text {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   color: white;
-}
-.top {
   position: absolute;
-  top: 2em;
-}
 
-.bottom {
-  position: absolute;
-  bottom: 2em;
+  .top {
+    top: 1em;
+  }
+
+  .bottom {
+    bottom: 1em;
+  }
 }

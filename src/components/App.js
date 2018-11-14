@@ -23,7 +23,7 @@ export default class App extends Component {
 
   memeToImage = (event) => {
     event.preventDefault();
-    domToImage.toPng(document.getElementById('image'))
+    domToImage.toPng(document.getElementById('meme'))
       .then(file => {
         fileSaver.saveAs(file);
       });
