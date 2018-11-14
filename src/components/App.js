@@ -5,7 +5,9 @@ export default class App extends Component {
         imgSource: 'URL',
         img: '',
         topText: '',
-        bottomText: ''
+        bottomText: '',
+        topColor: 'white',
+        bottomColor: 'white'
     };
 
     onChange = ({ target }) => {
@@ -19,21 +21,23 @@ export default class App extends Component {
         this.setState({ img: imgURL });
     };
 
-    onText = ({ target }) => {
-        this.setState({ [target.name]: target.value });
-    }
-
     render() {
-        const { imgSource, img, topText, bottomText } = this.state;
+        const { imgSource, img, topText, bottomText, topColor, bottomColor } = this.state;
         const options = ['URL', 'Upload'].map(imgSource => {
             return <option key={imgSource} value={imgSource}>{imgSource}</option>;
+        });
+        const topColorOptions = ['black', 'white', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'brown', 'grey'].map(topColor => {
+            return <option key={topColor} value={topColor}>{topColor}</option>;
+        });
+        const bottomColorOptions = ['black', 'white', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'brown', 'grey'].map(bottomColor => {
+            return <option key={bottomColor} value={bottomColor}>{bottomColor}</option>;
         });
         let input = <input type="text" name="img" value={img} onChange={this.onChange}/>;
         if(imgSource === 'Upload') {
             input = <input type="file" name="img" onChange={this.onUpload}/>;
         }
-        let topTextInput = <input type="text" name="topText" value={topText} onChange={this.onText}/>;
-        let bottomTextInput = <input type="text" name="bottomText" value={bottomText} onChange={this.onText}/>;
+        let topTextInput = <input type="text" name="topText" value={topText} onChange={this.onChange}/>;
+        let bottomTextInput = <input type="text" name="bottomText" value={bottomText} onChange={this.onChange}/>;
 
         return (
             <Fragment>
@@ -43,12 +47,18 @@ export default class App extends Component {
                         {options}
                     </select>
                     {input}
+                    <select name="topColor" defaultValue={topColor} onChange={this.onChange}>
+                        {topColorOptions}
+                    </select>
+                    <select name="bottomColor" defaultValue={bottomColor} onChange={this.onChange}>
+                        {bottomColorOptions}
+                    </select>
                     {topTextInput}
                     {bottomTextInput}
                 </form>
                 {img && <div className={styles.card} style={{ backgroundImage: `url(${img})` }}>
-                    <p className={styles.topText}>{topText}</p>
-                    <p className={styles.bottomText}>{bottomText}</p>
+                    <p className={styles.topText} style={{ color: topColor }}>{topText}</p>
+                    <p className={styles.bottomText} style={{ color: bottomColor }}>{bottomText}</p>
                 </div>}
             </Fragment>
         );
