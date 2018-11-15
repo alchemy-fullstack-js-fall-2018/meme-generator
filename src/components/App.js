@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 // import PropTypes from 'prop-types';
 import fileSaver from 'file-saver';
 import styles from './App.css';
+import domToImage from 'dom-to-image';
 
 export default class App extends Component {
     state = {
@@ -23,12 +24,11 @@ export default class App extends Component {
       event.preventDefault();
       domToImage.toPng(document.getElementById('meme'))
         .then(img => {
-          this.setState({ img });
+          fileSaver.saveAs(img);
         });
     };
 
     saveImage = () => {
-      fileSaver.saveAs(this.state.img);
     };
 
 
@@ -41,7 +41,7 @@ export default class App extends Component {
             <input name="imageSrc" type="text" value={imageSrc} onChange={this.onInputChange}/>
             <input name="topText" placeholder="top text goes here" value={topText} onChange={this.onInputChange}/>
             <input name="bottomText" placeholder="bottom text goes here" value={bottomText} onChange={this.onInputChange}/>
-            <button onClick={this.saveImage}>Save</button>
+            <button type="submit">Save</button>
           </form>
 
           <div className="meme" id="meme">
@@ -49,8 +49,6 @@ export default class App extends Component {
             <img src={imageSrc}></img>
             <p className="bottomText">{bottomText}</p>
           </div>
-
-         
         </Fragment>
       );
     }
