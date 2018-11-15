@@ -28,9 +28,10 @@ export default class App extends Component {
     const imageElement = document.getElementById('imageContainer');
     domToImage.toPng(imageElement)
       .then(img => {
-        debugger;
+        console.log(img);
         this.setState({ image: img });
-      });
+      })
+      .catch(console.error)
   };
 
   saveImage = () => {
