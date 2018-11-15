@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Meme Generator App snapshot 1`] = `
+<div
+  className="generator"
+>
+  <h1>
+    React Meme Generator
+  </h1>
+  <section
+    className="formHolder"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <label
+        name="selectedImg"
+      >
+        Choose an image:
+      </label>
+      <select
+        defaultValue=""
+        name="selectedImg"
+        onChange={[Function]}
+      >
+        <option
+          value="/path/image"
+        >
+          drake
+        </option>
+        <option
+          value="/path/image"
+        >
+          austin
+        </option>
+        <option
+          value="/path/image"
+        >
+          leo
+        </option>
+      </select>
+      <select
+        defaultValue="helvetica"
+        name="font"
+        onChange={[Function]}
+      >
+        <option
+          value="courrier"
+        >
+          courrier
+        </option>
+        <option
+          value="helvetica"
+        >
+          helvetica
+        </option>
+        <option
+          value="arial"
+        >
+          arial
+        </option>
+      </select>
+      <label
+        name="color"
+      >
+        Choose a color:
+      </label>
+      <input
+        name="color"
+        onChange={[Function]}
+        type="color"
+        value="white"
+      />
+      <input
+        name="topText"
+        onChange={[Function]}
+        placeholder="top text"
+        value=""
+      />
+      <input
+        name="bottomText"
+        onChange={[Function]}
+        placeholder="bottom text"
+        value=""
+      />
+      <button
+        type="submit"
+      >
+        Create Meme
+      </button>
+    </form>
+  </section>
+  <section
+    className="meme"
+    id="meme"
+  >
+    <div
+      className="topText"
+    >
+      <p
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "helvetica",
+          }
+        }
+      >
+        
+      </p>
+    </div>
+    <img
+      src=""
+    />
+    <div
+      className="bottomText"
+    >
+      <p
+        style={
+          Object {
+            "color": "white",
+            "fontFamily": "helvetica",
+          }
+        }
+      >
+        
+      </p>
+    </div>
+  </section>
+  
+  
+</div>
+`;

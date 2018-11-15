@@ -1,0 +1,55 @@
+.generator {
+  background: lightgray;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vw;
+  margin: auto;
+  padding: 20px;
+}
+.formHolder {
+  border: solid black 5px;
+  background-color: lightblue;
+  padding: 15px;
+  margin-bottom: 50px;
+}
+form {
+  width: 600px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-evenly;
+  margin: auto;
+}
+
+.meme {
+  position: relative;
+
+  .topText > p {
+    z-index: 3;
+    position: absolute;
+    text-align: center;
+    width: 600px;
+    top: 10px;
+    overflow: hidden;
+    margin: auto;
+    font-size: 2.5em;
+    color: white;
+    font-weight: bold;
+  }
+  .bottomText > p {
+    text-align: center;
+    height: 100px;
+    width: 600px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 25px;
+    margin: auto;
+    font-size: 2.5em;
+    color: white;
+    font-weight: bold;
+  }
+}
