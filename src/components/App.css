@@ -1,17 +1,36 @@
-.image {
-
-  span {
-    white-space: pre;
-    margin: auto;
-    display: inline-block;
-    padding: 1em;
-    font-family: monospace;
-  }
+.meme {
+  margin: 0px;
+  width: auto;
+  height: auto;
+  position: relative;
+  text-align: center;
 }
+
+.imageMeme {
+  border: 10px solid black;
+}
+
+.memeText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+
 label {
-  font-size: 50px;
+  font-size: 30px;
   margin: 15px;
   padding: 5px;
+}
+
+input {
+  width: 300px;
+  height: auto;
+}
+
+h1 {
+  margin: 3;
 }
 body {
   background-color: rgb(208, 220, 239);
@@ -23,11 +42,18 @@ body {
   margin: 20px;
 }
 
-.main {
+/* .main {
   display: flex;
-  flex-direction: column;
   height: 100vh;
-  justify-content: space-between;
   text-align: center;
   margin: 0;
+} */
+
+.labelContainer{
+  border: 2px solid black;
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: row;
+  justify-content: center;
+
 }
