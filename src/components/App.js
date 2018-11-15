@@ -31,7 +31,9 @@ export default class App extends Component {
 
   render() {
     const { font, textArea, img, color  } = this.state;
-    const fontOptions = ['Standard', 'Bell', '3-D', 'Avatar', 'Barbwire'].map(font => {
+    const fontOptions = [
+      'Arial', 'Impact', 'Tahoma', 'Verdana', 'Trebuchet'
+    ].map(font => {
       return <option key={font} value={font}>{font}</option>;
     });
 
@@ -42,6 +44,7 @@ export default class App extends Component {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
+        fontFamily: font
       }
     }
 
