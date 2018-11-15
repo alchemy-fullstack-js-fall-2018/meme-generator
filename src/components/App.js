@@ -1,10 +1,9 @@
 import React, { Component, Fragment } from 'react';
-import figlet from 'figlet';
 import domToImage from 'dom-to-image';
 import fileSaver from 'file-saver';
 import styles from './App.css';
 import PropTypes from 'prop-types';
-const colorsOptions = require('colors');
+
 
 export default class App extends Component {
   state = {
@@ -48,12 +47,9 @@ export default class App extends Component {
       }
     }
 
-
     return (
-
       <Fragment>
       <h1>Meme Generator</h1>
-
         <form onSubmit={this.saveMeme}>
           <div className={styles.labelContainer}>
             <label htmlFor="img">Enter URL</label>
@@ -77,7 +73,6 @@ export default class App extends Component {
             <button type="submit">Save meme</button>
           </div>
         </form>
-
         <div id="meme" className={styles.meme}>
           <img className={styles.imageMeme} src={img} />
           <div className={styles.memeText}>
@@ -86,7 +81,6 @@ export default class App extends Component {
             </p>
           </div>
         </div>
-
       </Fragment>
     );
   }

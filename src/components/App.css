@@ -17,11 +17,11 @@
   height: 100%;
 }
 
-
 label {
   font-size: 30px;
   margin: 15px;
   padding: 5px;
+  left: 16px;
 }
 
 input {
@@ -32,6 +32,7 @@ input {
 h1 {
   margin: 3;
 }
+
 body {
   background-color: rgb(208, 220, 239);
   font-size: 50px;
@@ -42,18 +43,9 @@ body {
   margin: 20px;
 }
 
-/* .main {
-  display: flex;
-  height: 100vh;
-  text-align: center;
-  margin: 0;
-} */
-
 .labelContainer{
   border: 2px solid black;
-  display: flex;
-  /* justify-content: center; */
   flex-direction: row;
   justify-content: center;
-
+  display: flex;
 }
