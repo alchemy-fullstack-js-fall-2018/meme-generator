@@ -1,0 +1,192 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Component header snapshot 1`] = `
+Array [
+  <h1>
+    Lets Make Some Memes!
+  </h1>,
+  <form
+    className="form"
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="url"
+    >
+      Paste a Url:
+    </label>
+    <br />
+    <input
+      name="url"
+      onChange={[Function]}
+      placeholder="Add an Image URL"
+      value="http://static.origos.hu/s/img/i/1801/20180108doge-dogecoin-kriptovaluta.jpg"
+    />
+    <br />
+    <p>
+      OR
+    </p>
+    <label
+      htmlFor="file"
+    >
+      Upload an Image:
+    </label>
+    <br />
+    <input
+      name="file"
+      onChange={[Function]}
+      type="file"
+    />
+    <br />
+    <input
+      name="header"
+      onChange={[Function]}
+      placeholder="Add Header"
+      value="Much"
+    />
+    <br />
+    <input
+      name="footer"
+      onChange={[Function]}
+      placeholder="Add Footer"
+      value="Disappoint"
+    />
+    <br />
+    <label
+      htmlFor="font"
+    >
+      Font Type:
+    </label>
+    <select
+      defaultValue="fantasy"
+      name="font"
+      onChange={[Function]}
+    >
+      <option
+        value="helvetica"
+      >
+        helvetica
+      </option>
+      <option
+        value="open-sans"
+      >
+        open-sans
+      </option>
+      <option
+        value="serif"
+      >
+        serif
+      </option>
+      <option
+        value="monospace"
+      >
+        monospace
+      </option>
+      <option
+        value="cursive"
+      >
+        cursive
+      </option>
+      <option
+        value="fantasy"
+      >
+        fantasy
+      </option>
+    </select>
+    <br />
+    <label
+      htmlFor="color"
+    >
+      Color Type:
+    </label>
+    <select
+      defaultValue={
+        Object {
+          "color": "white",
+        }
+      }
+      name="color"
+      onChange={[Function]}
+    >
+      <option
+        value="White"
+      >
+        White
+      </option>
+      <option
+        value="Yellow"
+      >
+        Yellow
+      </option>
+      <option
+        value="Blue"
+      >
+        Blue
+      </option>
+      <option
+        value="Pink"
+      >
+        Pink
+      </option>
+      <option
+        value="Purple"
+      >
+        Purple
+      </option>
+      <option
+        value="Red"
+      >
+        Red
+      </option>
+    </select>
+    <br />
+    <button
+      type="submit"
+    >
+      Save This Meme
+    </button>
+  </form>,
+  <div
+    className="meme"
+    id="meme"
+  >
+    <img
+      alt="meme"
+      className="image"
+      id="img"
+      src="http://static.origos.hu/s/img/i/1801/20180108doge-dogecoin-kriptovaluta.jpg"
+    />
+    <div
+      className="text"
+    >
+      <div
+        className="header"
+      >
+        <span
+          className="fantasy"
+          style={
+            Object {
+              "color": "white",
+            }
+          }
+        >
+          MUCH
+        </span>
+      </div>
+      <div
+        className="footer"
+      >
+        <span
+          className="fantasy"
+          style={
+            Object {
+              "color": "white",
+            }
+          }
+        >
+          DISAPPOINT
+        </span>
+      </div>
+    </div>
+  </div>,
+]
+`;
