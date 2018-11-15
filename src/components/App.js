@@ -8,7 +8,7 @@ export default class App extends Component {
     topText: '',
     bottomText: '',
     font: 'Impact',
-    textColor: '',
+    textColor: '#FFFFFF',
     imgSrc: '',
     img: ''
   };
@@ -32,7 +32,7 @@ export default class App extends Component {
   render() {
     const { topText, bottomText, font, textColor, imgSrc, img } = this.state;
 
-    const fonts = ['Impact', 'Comic Sans MS', 'Courier New'].map(
+    const fonts = ['Impact', 'Comic Sans MS', 'Courier New', 'Times New Roman', 'Arial Black'].map(
       font => <option key={font} value={font}>{font}</option>
     );
 
@@ -60,7 +60,11 @@ export default class App extends Component {
           <label htmlFor="bottomText">Bottom Text:</label>
           <input name="bottomText" placeholder="this is your bottom text" onChange={this.onChange} value={bottomText}/>
 
+          <label htmlFor="font">Pick a font</label>
           <select name="font" defaultValue={font} onChange={this.onChange}>{fonts}</select>
+
+          <label htmlFor="textColor">Pick a text color:</label>
+          <input  type="color" name="textColor" id="textColor" value={textColor} onChange={this.onChange}/>
 
           <button type="submit">Save that sweet meme</button>
         </form>
