@@ -7,7 +7,7 @@ export default class App extends Component {
   state = {
     topText: '',
     bottomText: '',
-    font: '',
+    font: 'Impact',
     textColor: '',
     imgSrc: '',
     img: ''
@@ -32,6 +32,17 @@ export default class App extends Component {
   render() {
     const { topText, bottomText, font, textColor, imgSrc, img } = this.state;
 
+    const fonts = ['Impact', 'Comic Sans MS', 'Courier New'].map(
+      font => <option key={font} value={font}>{font}</option>
+    );
+
+    const textStyle = () => {
+      return {
+        color: textColor,
+        fontFamily: font
+      }
+    };
+
     return (
       <Fragment>
         <h1>memes? where we're going, we're gonna need memes</h1>
@@ -49,6 +60,8 @@ export default class App extends Component {
           <label htmlFor="bottomText">Bottom Text:</label>
           <input name="bottomText" placeholder="this is your bottom text" onChange={this.onChange} value={bottomText}/>
 
+          <select name="font" defaultValue={font} onChange={this.onChange}>{fonts}</select>
+
           <button type="submit">Save that sweet meme</button>
         </form>
 
@@ -56,8 +69,8 @@ export default class App extends Component {
         <div className={styles.meme} id="meme">
           <img src={imgSrc} id="memePic" className={styles.image}/>
           <div className={styles.text}>
-            <span id="memeTop" className={styles.top}>{topText}</span>
-            <span id="memeBottom" className={styles.bottom}>{bottomText}</span>
+            <span id="memeTop" className={styles.top} style={textStyle()}>{topText}</span>
+            <span id="memeBottom" className={styles.bottom} style={textStyle()}>{bottomText}</span>
           </div>
         </div>
 
