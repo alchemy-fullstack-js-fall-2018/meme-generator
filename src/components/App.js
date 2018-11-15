@@ -13,15 +13,15 @@ export default class App extends Component {
   };
 
   handleChosenFile = ({ target }) => {
-    let url = window.URL.createObjectURL(target.files[0])
-    this.setState({ url })
+    let url = window.URL.createObjectURL(target.files[0]);
+    this.setState({ url });
   };
 
   onChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
   };
   changeColor = ({ target }) => {
-    this.setState({ [target.name]:{ [target.name]: target.value }});
+    this.setState({ [target.name]:{ [target.name]: target.value } });
   };
 
   saveMeme = (event) => {
@@ -31,14 +31,14 @@ export default class App extends Component {
   };
 
   render() {
-    const { url, header, footer, font, color} = this.state;
+    const { url, header, footer, font, color } = this.state;
     const options = ['helvetica', 'open-sans', 'serif', 'monospace', 'cursive', 'fantasy'].map(font => {
-      return <option key={font} value={font}>{font}</option>
-    })
+      return <option key={font} value={font}>{font}</option>;
+    });
 
     const colorOptions = ['White', 'Yellow', 'Blue', 'Pink', 'Purple', 'Red'].map(color => {
-        return <option key={color} value={color}>{color}</option>
-    })
+      return <option key={color} value={color}>{color}</option>;
+    });
     return (
       <Fragment>
         <h1>Lets Make Some Memes!</h1>
@@ -72,6 +72,6 @@ export default class App extends Component {
           </div>
         </div>
       </Fragment>
-    )
-  };
+    );
+  }
 }
