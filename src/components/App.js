@@ -6,11 +6,11 @@ import styles from './App.css';
 export default class App extends Component {
 
   state = {
-    header: 'header text',
-    footer: 'footer text',
-    font: 'Courier',
-    color: '#008000',
-    size: '24px',
+    header: '',
+    footer: '',
+    font: '',
+    color: '#000000',
+    size: 90,
     imageURL: 'https://imgflip.com/s/meme/Creepy-Condescending-Wonka.jpg',
     image: ''
   }
@@ -19,11 +19,15 @@ export default class App extends Component {
     this.setState({ [target.name]: target.value })
   }
 
+  onSizeChange = (newSize) => {
+    this.setState({ size: newSize })
+  }
+
   onImageUpload = ({target}) => {
     this.setState({ imageURL: window.URL.createObjectURL(target.files[0]) })
   }
 
-  textToImage = (event) => {
+  downloadImage = (event) => {
     event.preventDefault();
     const imageElement = document.getElementById('imageContainer');
     domToImage.toPng(imageElement)
@@ -31,21 +35,22 @@ export default class App extends Component {
         console.log(img);
         this.setState({ image: img });
       })
-      .catch(console.error)
-  };
-
-  saveImage = () => {
-    fileSaver.saveAs(this.state.image);
+      .then(() => {
+        fileSaver.saveAs(this.state.image)
+      });
   };
 
   render () {
 
-    const { header, footer, font, color, imageURL, image } = this.state;
+    const { header, footer, font, size, color, imageURL, image } = this.state;
 
     const imageContainerStyle = {
       position: 'relative',
+      margin: 'auto',
       fontFamily: font,
-      color: color
+      fontWeight: 'bold',
+      color: color,
+      fontSize: size
     }
     const headerStyle = {
       position: 'absolute',
@@ -66,46 +71,49 @@ export default class App extends Component {
       <Fragment>
         <h1>Meme Generator</h1>
 
-        <form onSubmit={this.textToImage}>
+        <form onSubmit={this.downloadImage} class={styles.form}>
           <fieldset>
             <legend>Options</legend>
             <label htmlFor="header">Header: </label>
             <input name="header" placeholder="enter header here" value={header} onChange={this.onChange} />
-
+            <br />
 
             <label htmlFor="footer">Footer: </label>
             <input name="footer" placeholder="enter footer here" value={footer} onChange={this.onChange} />
+            <br />
 
             <label htmlFor="font">Font family: </label>
             <select name="font" defaultValue={font} onChange={this.onChange}>
               {fontOptions}
             </select>
-            <p>{font}</p>
+            <br />
 
             <label htmlFor="color">Font color: </label>
             <input name="color" value={color} type="color" onChange={this.onChange} />
-            <p>{color}</p>
+            <br />
+
+            <label htmlFor="size">Font size: </label>
+            <button type="button" onClick={() => this.onSizeChange(size - 2)}>-</button>
+            <button type="button" onClick={() => this.onSizeChange(size + 2)}>+</button>
+            <br />
 
             <label htmlFor="imageURL">Image URL</label>
             <input name="imageURL" type="text" onChange={this.onChange} /><br />
 
             <label htmlFor="imageUpload"></label>
             <input name="imageUpload" type="file" accept="image/*" onChange={this.onImageUpload} />
-            <p>{imageURL}</p>
-            <button type="submit">Create Image</button>
           </fieldset>
-        </form>
+          <br />
 
-        <span id="imageContainer" style={imageContainerStyle}>
-          {imageURL && <img src={imageURL} />}
-          <div style={headerStyle}>{header}</div>
-          <div style={footerStyle}>{footer}</div>
-        </span>
-        {image && <img src={image} />}
-        {imageURL && <button onClick={this.saveImage}>Save Image</button>}
+          <div id="imageContainer" style={imageContainerStyle}>
+            {imageURL && <img src={imageURL} />}
+            <div style={headerStyle}>{header}</div>
+            <div style={footerStyle}>{footer}</div>
+          </div>
+
+          <button type="submit">Download Meme</button>
+        </form>
       </Fragment>
     )
-
   }
-
 }
