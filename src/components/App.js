@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import domToImage from 'dom-to-image';
 import fileSaver from 'file-saver';
-import styles from './App.css';
 
 export default class App extends Component {
 
@@ -11,8 +10,7 @@ export default class App extends Component {
     font: '',
     color: '#000000',
     size: 90,
-    imageURL: 'https://imgflip.com/s/meme/Creepy-Condescending-Wonka.jpg',
-    image: ''
+    imageURL: ''
   }
 
   onChange = ({ target }) => {
@@ -24,7 +22,7 @@ export default class App extends Component {
   }
 
   onImageUpload = ({target}) => {
-    this.setState({ imageURL: window.URL.createObjectURL(target.files[0]) })
+    this.setState({ imageURL: window.URL.createObjectURL(target.files[0]) });
   }
 
   downloadImage = (event) => {
@@ -71,7 +69,7 @@ export default class App extends Component {
       <Fragment>
         <h1>Meme Generator</h1>
 
-        <form onSubmit={this.downloadImage} class={styles.form}>
+        <form onSubmit={this.downloadImage}>
           <fieldset>
             <legend>Options</legend>
             <label htmlFor="header">Header: </label>
