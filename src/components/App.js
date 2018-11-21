@@ -9,8 +9,9 @@ export default class App extends Component {
   state = {
     font: 'Standard',
     textArea: '',
-    img: 'http://i.imgflip.com/2mk6g6.jpg',
-    color: ''
+    source: 'http://i.imgflip.com/2mk6g6.jpg',
+    color: '',
+    file: ''
   };
 
   onChange = ({ target }) => {
@@ -24,12 +25,14 @@ export default class App extends Component {
       .then(memeImage => fileSaver.saveAs(memeImage));
   };
 
-  saveImage = () => {
-    fileSaver.saveAs(this.state.img);
+  uploadFile = ({ target }) => {
+    let source = window.URL.createObjectURL(target.files[0]);
+    this.setState({ source });
   };
 
+
   render() {
-    const { font, textArea, img, color  } = this.state;
+    const { font, textArea, color, source  } = this.state;
     const fontOptions = [
       'Arial', 'Impact', 'Tahoma', 'Verdana', 'Trebuchet'
     ].map(font => {
@@ -52,8 +55,12 @@ export default class App extends Component {
       <h1>Meme Generator</h1>
         <form onSubmit={this.saveMeme}>
           <div className={styles.labelContainer}>
-            <label htmlFor="img">Enter URL</label>
-            <input type="text" name="img" id="url" placeholder="Enter Image URL" value={img} onChange={this.onChange} />
+            <label htmlFor="source">Enter URL</label>
+            <input type="text" name="source" id="url" placeholder="Enter Image URL" value={source} onChange={this.onChange} />
+
+            <label htmlFor='file'>Upload image from you computer</label>
+          <input name="file" id="file" type="file" onChange={this.uploadFile}/>
+
           </div>
           <div className={styles.labelContainer}>
             <label htmlFor="font">Select Font</label>
@@ -74,7 +81,7 @@ export default class App extends Component {
           </div>
         </form>
         <div id="meme" className={styles.meme}>
-          <img className={styles.imageMeme} src={img} />
+          <img className={styles.imageMeme} src={source} />
           <div className={styles.memeText}>
             <p style={memeTextStyles()}>
               {textArea}
