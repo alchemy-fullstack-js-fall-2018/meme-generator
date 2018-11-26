@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import styles from './App.css';
 import fileSaver from 'file-saver';
 import domToImage from 'dom-to-image';
-export default class App extends Component {
+export default class  App extends Component {
     state = {
         imgSource: 'URL',
         img: '',
@@ -110,6 +110,3 @@ export default class App extends Component {
         );
     }
 }
-
-// objectURL = URL.createObjectURL(object);
-// target.files[0]
