@@ -22,7 +22,7 @@ _Please feel free to reach out to me at mlamb128@gmail.com if you have any quest
 
 ## Technologies Used
 
-_React and Webpack_
+_React and Webpack._
 
 ## License
 
