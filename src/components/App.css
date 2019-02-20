@@ -1,0 +1,41 @@
+h1 {
+  font-family: impact, sans-serif;
+}
+
+.form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  font-family: impact, sans-serif;
+}
+
+.meme {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  button {
+    display: block;
+  }
+}
+
+#memePic {
+  position: absolute;
+}
+
+.text {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  font-size: 30pt;
+
+  .top {
+    top: 1em;
+  }
+
+  .bottom {
+    bottom: 1em;
+  }
+}
