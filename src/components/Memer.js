@@ -10,7 +10,7 @@ export default class App extends Component {
 
 
   state = {
-    img: 'https://i.imgur.com/cfkKYcR.png',
+    img: 'https://i.imgur.com/BHur0nH.jpg',
     headerText: 'Wrote a meme maker',
     footerText: 'nobody used it',
     font: 'Papyrus',

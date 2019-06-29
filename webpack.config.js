@@ -4,7 +4,7 @@ const HtmlPlugin = require('html-webpack-plugin');
 
 module.exports = {
   // start here
-  entry: './src/index.js',
+  entry: './src/index.tsx',
   // put the build output here (not dev server)
   output: {
     filename: 'bundle.[hash].js',
@@ -23,15 +23,21 @@ module.exports = {
   ],
   module: {
     rules: [
-      // js
+      // ts
       {
-        test: /\.js$/,
+        test: /\.ts(x?)$/,
         exclude: /node_modules/,
         use: {
+          loader: 'ts-loader',
+        }
+      },
+
+      // js
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        use: {
           loader: 'babel-loader',
-          options: {
-            cacheDirectory: true
-          }
         }
       },
 
@@ -74,5 +80,10 @@ module.exports = {
         },
       }
     ]
+  },
+
+  externals: {
+    'react': 'React',
+    'react-dom': 'ReactDOM'
   }
 };
