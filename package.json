@@ -7,7 +7,7 @@
     "test": "jest",
     "test:watch": "npm run test -- --watch",
     "build": "./node_modules/webpack-cli/bin/cli.js --mode production",
-    "start": "webpack-dev-server --hot --mode development"
+    "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --mode development"
   },
   "keywords": [],
   "author": "",
